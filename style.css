@@ -1,0 +1,104 @@
+/* Modern Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.navbar { display: flex; justify-content: space-between; padding: 20px; background: #fff; }
+.nav-links { display: flex; list-style: none; }
+
+/* Dropdown gizlətmə */
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none; /* İlkin vəziyyətdə gizli */
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 10px 0;
+}
+
+/* Mouse gələndə açılması */
+.dropdown:hover .dropdown-content { display: block; }
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover { background-color: #f1f1f1; }
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+/* Grid Sistemi */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Məhsul Kartları */
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.image-box {
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.category {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
