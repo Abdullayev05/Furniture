@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="az">
+
 <head>
     <meta charset="UTF-8">
-    <title>Prabott Furniture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukshome</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
 </head>
+
 <body>
-<nav class="navbar">
-    <div class="logo">Prabott</div>
-    
-    <ul class="nav-links">
-        <li><a href="#">Ana Səhifə</a></li>
-        
-        <!-- Dropdown bölməsi -->
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Məhsullar ▼</a>
-            <div class="dropdown-content">
-                <a href="#">Mətbəx Mebelləri</a>
-                <a href="#">Salon Dəstləri</a>
-                <a href="#">Yataq Otağı</a>
-                <a href="#">Stol və Stullar</a>
-                <a href="#">Stol və Stullar</a>
-                <a href="#">Stol və Stullar</a>
-                <a href="#">Stol və Stullar</a>
-                <a href="#">Stol və Stullar</a>
-                <a href="#">Stol və Stullar</a>
-            </div>
-        </li>
-        
-        <li><a href="#">Əlaqə</a></li>
-    </ul>
-</nav>
-    <!-- Məhsul Bölməsi -->
-    <section class="container">
-        <h2 class="section-title">Yeni Kolleksiya</h2>
-        <div class="product-grid">
-            <div class="card">
-                <div class="image-box">
-                    <img src="chair.jpg" alt="Mebel">
-                </div>
-                <h3>Walnut Grace Chair</h3>
-                <span class="category">Chair</span>
-                <p class="price">£1,450</p>
-            </div>
-            <!-- Kartları bura əlavə et -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="assets/photos/logo.webp" alt="Prabott Furniture Logo">
+        </a>
+        <div class="hamburger" onclick="toggleMenuWithAnimation(this)">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-    </section>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Səhifə</a></li>
+            <li><a href="./assets/pages/haqqimizda.html">Haqqımızda</a></li>
+            <li><a href="./assets/pages/magaza.html">Mağaza</a></li>
+
+            <!-- Məhsullar üçün dəyişdirilmiş struktur -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn" onclick="toggleDropdown(this)">
+                    Məhsullar <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content">
+                    <div class="dropdown-inner"> <!-- Bu yeni div vacibdir -->
+                        <a href="../pages/metbex.html">Mətbəx Mebelləri</a>
+                        <a href="../pages/salon.html">Salon Dəstləri</a>
+                        <a href="../pages/yataq.html">Yataq Otağı</a>
+                        <a href="../pages/stol.html">Stol və Stullar</a>
+                        <a href="../pages/qapilar.html">Qapılar</a>
+                    </div>
+                </div>
+            </li>
+
+            <li><a href="#">Əlaqə</a></li>
+        </ul>
+    </nav>
+
+    <!-- Slider Bölməsi -->
+    <div class="hero-slider">
+        <div class="slider-container">
+            <img src="./assets/photos/divanlar/pht17.jpg" alt="Slide 1" class="active">
+            <img src="./assets/photos/seyf_qapilar/pht15.jpg" alt="Slide 2">
+        </div>
+    </div>
 
 </body>
+
 </html>

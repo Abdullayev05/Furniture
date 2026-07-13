@@ -1,15 +1,15 @@
-/* Modern Reset */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
     background-color: #fafafa;
     color: #1a1a1a;
     line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -18,87 +18,285 @@ body {
     padding: 60px 20px;
 }
 
-.navbar { display: flex; justify-content: space-between; padding: 20px; background: #fff; }
-.nav-links { display: flex; list-style: none; }
-
-/* Dropdown gizlətmə */
-.dropdown { position: relative; }
-.dropdown-content {
-    display: none; /* İlkin vəziyyətdə gizli */
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-    z-index: 1;
-    border-radius: 8px;
-    padding: 10px 0;
+/* Navbar - Loqo solda, Menyular sağda */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    /* Loqo sola, hamburger sağa gedir */
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    position: relative;
 }
 
-/* Mouse gələndə açılması */
-.dropdown:hover .dropdown-content { display: block; }
+.logo-link {
+    margin-right: auto;
+    /* Loqonu sol küncə yapışdırır */
+}
 
-.dropdown-content a {
-    color: black;
-    padding: 10px 15px;
+.logo-link img {
+    height: 50px;
+    width: auto;
     display: block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    /* Linklər arası boşluq */
+    align-items: center;
+}
+
+.nav-links li {
+    white-space: nowrap;
+    /* Yazıların alt-alta düşməsini qadağan edir */
+}
+
+.nav-links li a {
     text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 5px;
+    transition: 0.3s;
+    white-space: nowrap;
+    /* Yazının alt-alta düşməsini qadağan edir */
 }
 
-.dropdown-content a:hover { background-color: #f1f1f1; }
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    letter-spacing: -1px;
+/* Aktiv link stili */
+.nav-links li a.active {
+    color: #c5a059;
+    font-weight: bold;
+    border-bottom: 2px solid #c5a059;
 }
 
-/* Grid Sistemi */
+/* Dropdown */
+.dropdown {
+    position: relative; /* Bu çox vacibdir */
+    width: 100%;
+    text-align: center;
+}
+
+/* .dropdown:hover .dropdown-content {
+    display: block;
+} */
+.dropdown-content {
+    display: none; /* İlkin vəziyyətdə yazılar yoxdur */
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+    overflow: hidden;
+}
+
+/* Kliklənən menyunu göstərmək üçün */
+.dropdown-content.show {
+    grid-template-rows: 1fr; /* Hündürlüyü açır */
+}
+.dropdown-inner {
+    min-height: 0;
+}
+/* Linkləri səliqəli düzürük */
+.dropdown-content a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box; /* Padding-in genişliyi pozmasının qarşısını alır */
+}
+
+/* İkonun hər iki tərəfə animasiyası */
+.arrow {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.arrow.rotate {
+    transform: rotate(180deg);
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+    color: #c5a059;
+}
+
+/* Məhsullar və Kartlar */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-/* Məhsul Kartları */
 .card {
     background: #ffffff;
     padding: 20px;
     border-radius: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: 0.4s;
+    border: 1px solid #eee;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-.image-box {
-    background: #f0f0f0;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .card img {
     width: 100%;
-    height: 280px;
+    height: 250px;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    border-radius: 8px;
 }
 
-.card:hover img {
-    transform: scale(1.05);
+.hamburger {
+    display: inline-block;
+    /* Kompüterdə gizli */
+    cursor: pointer;
+    z-index: 1001;
+}
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Ortadakı xətt yox olur */
 }
 
-.category {
-    font-size: 0.85rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg); /* Birinci xətt dönür */
 }
 
-.price {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-top: 5px;
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg); /* Üçüncü xətt dönür */
+}
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0; /* Sağdan açılmasını təmin edir */
+    width: 250px;
+    background: white;
+    padding: 20px;
+    flex-direction: column;
+    box-shadow: -5px 5px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-links.active {
+    display: flex;
+}
+.bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px auto;
+    background-color: #c5a059; /* Sənin loqonun rəngi */
+    transition: all 0.3s ease-in-out;
+}
+
+/* RESPONSIVE DİZAYN */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 15px 2%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+   .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    /* Loqonun yerini tənzimləyir */
+    .logo-link {
+        margin-right: auto;
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* JS ilə aktiv olduqda görünür */
+    .nav-links.active {
+        display: flex;
+    }
+    .dropdown-content {
+        position: relative; /* Mobil rejimdə alt-alta düzülür */
+        width: 100%;
+        background: none;
+        box-shadow: none;
+    }
+}
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+    .nav-links {
+        display: flex !important;
+        position: static;
+        box-shadow: none;
+        flex-direction: row;
+        width: auto;
+    }
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        position: absolute; /* Desktopda açılan menyu üçün əsasdır */
+        top: 100%;
+        left: 0;
+        display: none; /* İlkin vəziyyətdə gizli */
+        background: #fff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        min-width: 200px;
+        z-index: 1000;
+    }
+
+    .dropdown-content.show {
+        display: block !important;
+    }
+}
+/* responsive desing */
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 sütunlu grid */
+        gap: 20px;
+    }
+
+    .navbar {
+        padding: 20px;
+    }
 }
