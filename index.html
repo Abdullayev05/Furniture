@@ -11,47 +11,139 @@
 
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo-link">
-            <img src="assets/photos/logo.webp" alt="Prabott Furniture Logo">
-        </a>
-        <div class="hamburger" onclick="toggleMenuWithAnimation(this)">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Ana Səhifə</a></li>
-            <li><a href="./assets/pages/haqqimizda.html">Haqqımızda</a></li>
-            <li><a href="./assets/pages/magaza.html">Mağaza</a></li>
+        <div class="container navbar-content">
+            <!-- Logo -->
+            <a href="../../index.html" class="logo-link">
+                <img src="./assets/photos/logo.webp" alt="Prabott Furniture Logo">
+            </a>
 
-            <!-- Məhsullar üçün dəyişdirilmiş struktur -->
-            <li class="dropdown">
-                <a href="#" class="dropbtn" onclick="toggleDropdown(this)">
-                    Məhsullar <span class="arrow">▼</span>
-                </a>
-                <div class="dropdown-content">
-                    <div class="dropdown-inner"> <!-- Bu yeni div vacibdir -->
-                        <a href="../pages/metbex.html">Mətbəx Mebelləri</a>
-                        <a href="../pages/salon.html">Salon Dəstləri</a>
-                        <a href="../pages/yataq.html">Yataq Otağı</a>
-                        <a href="../pages/stol.html">Stol və Stullar</a>
-                        <a href="../pages/qapilar.html">Qapılar</a>
+            <!-- Menyu Linkləri -->
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Səhifə</a></li>
+                <li><a href="./assets/pages/haqqimizda.html">Haqqımızda</a></li>
+                <li><a href="./assets/pages/magaza.html">Mağaza</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" onclick="toggleDropdown(this)">
+                        Məhsullar <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-inner">
+                            <a href="./assets/pages/magaza.html">Salon Dəstləri</a>
+                            <a href="./assets/pages/magaza.html">Stol və Stullar</a>
+                            <a href="./assets/pages/magaza.html">Qapılar</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+                <li><a href="#">Əlaqə</a></li>
+            </ul>
 
-            <li><a href="#">Əlaqə</a></li>
-        </ul>
+            <!-- Hamburger Menyu -->
+            <div class="hamburger" onclick="toggleMenu(this)">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
 
-    <!-- Slider Bölməsi -->
+
     <div class="hero-slider">
         <div class="slider-container">
-            <img src="./assets/photos/divanlar/pht17.jpg" alt="Slide 1" class="active">
-            <img src="./assets/photos/seyf_qapilar/pht15.jpg" alt="Slide 2">
+            <img src="./assets/photos/background_phts/pht24.jpg" alt="Slide">
+
+            <div class="hero-text">
+                <h1>Keyfiyyət və zərifliyin vəhdəti</h1>
+                <div class="divider"></div> <!-- Yazı ilə mətn arasında xətt -->
+                <p>Evinizə dəyər qatan toxunuş</p>
+                <button class="hero-btn" onclick="window.location.href='./assets/pages/magaza.html'">Ətraflı</button>
+            </div>
         </div>
     </div>
+
+
+    <section class="style-guide">
+        <h2 class="section-title">Evinin Ruhunu Seç</h2>
+        <p class="section-subtitle">Hansı mühit səni daha yaxşı əks etdirir?</p>
+
+        <div class="style-grid">
+            <!-- Minimalist Modern -->
+            <div class="style-card">
+                <img src="./assets/photos/divanlar/pht32.jpg" alt="Minimalist Mebel">
+                <div class="content">
+                    <h3>Minimalist Modern</h3>
+                    <p>Müasir interyer üçün minimalist seçim</p>
+                </div>
+            </div>
+
+            <!-- Klassik Zəriflik -->
+            <div class="style-card">
+                <img src="./assets/photos/qapilar/pht6.jpg" alt="Klassik Mebel">
+                <div class="content">
+                    <h3>Klassik Zəriflik</h3>
+                    <p>Klassikanın heç vaxt köhnəlməyən gözəlliyi</p>
+                </div>
+            </div>
+
+            <!-- Loft & Industrial -->
+            <div class="style-card">
+                <img src="./assets/photos/stol_stul/pht1.jpg" alt="Loft Mebel">
+                <div class="content">
+                    <h3>Lüks Interyer</h3>
+                    <p>Şəhər ruhunu evinizə gətirin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2 class="section-title">Biz haradayıq?</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.012586071477!2d49.7499887!3d40.4460217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403087e63eff7283%3A0x799510b503e85842!2sLukshome!5e0!3m2!1sen!2saz!4v1690000000000!5m2!1sen!2saz"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- 1. Loqo və Şüar -->
+            <div class="footer-col">
+                <img src="./assets/photos/logo.webp" alt="Lux Mebel" class="footer-logo">
+                <p>Evinizə dəyər qatan toxunuşlar və modern mebel həlləri.</p>
+            </div>
+
+            <!-- 2. Linklər -->
+            <div class="footer-col">
+                <h3>Menyu</h3>
+                <ul>
+                    <li><a href="index.html">Ana Səhifə</a></li>
+                    <li><a href="./assets/pages/haqqimizda.html">Haqqımızda</a></li>
+                    <li><a href="./assets/pages/magaza.html">Mağaza</a></li>
+                </ul>
+            </div>
+
+            <!-- 3. Əlaqə -->
+            <div class="footer-col">
+                <h3>Əlaqə</h3>
+                <p>📍 Xırdalan, Azərbaycan</p>
+                <p>📞 +994 XX XXX XX XX</p>
+            </div>
+
+            <!-- 4. Sosial -->
+            <div class="footer-col">
+                <h3>Bizi izləyin</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/lukshome.az/">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Lux Mebel. Bütün hüquqlar qorunur.</p>
+        </div>
+        <script>
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+        </script>
+    </footer>
 
 </body>
 

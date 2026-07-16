@@ -1,51 +1,77 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const path = window.location.pathname;
-    const page = path.split("/").pop(); 
-    const navLinks = document.querySelectorAll(".nav-links li a");
+document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".slider-container img");
+    
+    if (slides.length > 0) {
+        let currentIndex = 0;
 
-    navLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        
-       
-        if (href.includes(page) || (page === "" && href === "index.html")) {
-            navLinks.forEach(l => l.classList.remove("active"));
-            link.classList.add("active");
+        // 1. SƏHİFƏ AÇILAN KİMİ İLK ŞƏKLİ AKTİV ET
+        slides[currentIndex].classList.add("active");
+
+        function changeSlide() {
+            // Köhnəni gizlə
+            slides[currentIndex].classList.remove("active");
+            
+            // Yeni indeksi tap
+            currentIndex = (currentIndex + 1) % slides.length;
+            
+            // Yenini göstər
+            slides[currentIndex].classList.add("active");
         }
-    });
-});
 
-function toggleMenu() {
+        // 2. Hər 4 saniyədən bir avtomatik dəyişir
+        setInterval(changeSlide, 4000);
+    }
+    
+    // ... menyu və digər kodların ...
+});
+// 3. Menyunu açan funksiya (Animasiya ilə)
+function toggleMenu(element) {
     const navLinks = document.querySelector(".nav-links");
     navLinks.classList.toggle("active");
-}
-
-function toggleDropdown(element) {
-    const content = element.nextElementSibling;
-    const arrow = element.querySelector('.arrow');
-    
-    content.classList.toggle('show');
-    if (arrow) arrow.classList.toggle('rotate');
-    
-    content.style.display = ''; 
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.matches('.dropbtn *')) {
-        const dropdowns = document.querySelectorAll('.dropdown-content');
-        dropdowns.forEach(content => {
-            if (content.classList.contains('show')) {
-                content.classList.remove('show');
-                content.style.display = 'none';
-                const arrow = content.previousElementSibling.querySelector('.arrow');
-                if (arrow) arrow.classList.remove('rotate');
-            }
-        });
+    if (element) {
+        element.classList.toggle("active");
     }
 }
 
+// 4. Dropdown funksiyası
+function toggleDropdown(element) {
+    const content = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
 
-function toggleMenuWithAnimation(element) {
-    element.classList.toggle("active");
-    
-    toggleMenu(); 
+    // Digər açıq dropdown-ları bağla ki, konflikt olmasın
+    document.querySelectorAll('.dropdown-content').forEach(item => {
+        if (item !== content) {
+            item.classList.remove('show');
+            const parent = item.parentElement;
+            const otherArrow = parent.querySelector('.arrow');
+            if (otherArrow) otherArrow.classList.remove('rotate');
+        }
+    });
+
+    content.classList.toggle('show');
+    if (arrow) {
+        arrow.classList.toggle('rotate');
+    }
+}
+
+// 5. Kənara kliklədikdə hər şeyi bağlayan funksiya
+window.onclick = function (event) {
+    // 1. Dropdown-ları bağla
+    if (!event.target.matches('.dropbtn') && !event.target.matches('.dropbtn *')) {
+        document.querySelectorAll('.dropdown-content.show').forEach(content => {
+            content.classList.remove('show');
+            const arrow = content.parentElement.querySelector('.arrow');
+            if (arrow) arrow.classList.remove('rotate');
+        });
+    }
+
+    // 2. Hamburger menyunu bağla (BURADA DƏYİŞİKLİK ETDİK)
+    const navLinks = document.querySelector(".nav-links");
+    const menuBtn = document.querySelector(".hamburger"); // ".menu-toggle" yerinə ".hamburger"
+
+    if (navLinks && navLinks.classList.contains("active") &&
+        !event.target.closest('.nav-links') && !event.target.closest('.hamburger')) {
+        navLinks.classList.remove("active");
+        if (menuBtn) menuBtn.classList.remove("active");
+    }
 }

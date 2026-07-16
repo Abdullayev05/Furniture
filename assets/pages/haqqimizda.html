@@ -11,35 +11,39 @@
 
 <body>
     <nav class="navbar">
-        <a href="../../index.html" class="logo-link">
-            <img src="../../assets/photos/logo.webp" alt="Prabott Furniture">
-        </a>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../../index.html">Ana Səhifə</a></li>
-            <li><a href="haqqimizda.html" class="active">Haqqımızda</a></li>
-            <li><a href="../pages/magaza.html">Mağaza</a></li>
+        <div class="container navbar-content">
+            <!-- Logo -->
+            <a href="../../index.html" class="logo-link">
+                <img src="../../assets/photos/logo.webp" alt="Prabott Furniture Logo">
+            </a>
 
-            <li class="dropdown">
-                <a href="#" class="dropbtn" onclick="toggleDropdown()">
-                    Məhsullar <span id="arrow">▼</span>
-                </a>
-               <div class="dropdown-content">
-                    <div class="dropdown-inner"> <!-- Bu yeni div vacibdir -->
-                        <a href="../pages/metbex.html">Mətbəx Mebelləri</a>
-                        <a href="../pages/salon.html">Salon Dəstləri</a>
-                        <a href="../pages/yataq.html">Yataq Otağı</a>
-                        <a href="../pages/stol.html">Stol və Stullar</a>
-                        <a href="../pages/qapilar.html">Qapılar</a>
+            <!-- Menyu Linkləri -->
+            <ul class="nav-links">
+                <li><a href="../../index.html">Ana Səhifə</a></li>
+                <li><a href="../../assets/pages/haqqimizda.html">Haqqımızda</a></li>
+                <li><a href="../../assets/pages/magaza.html">Mağaza</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" onclick="toggleDropdown(this)">
+                        Məhsullar <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-inner">
+                            <a href="../../assets/pages/magaza.html">Salon Dəstləri</a>
+                            <a href="../../assets/pages/magaza.html">Stol və Stullar</a>
+                            <a href="../../assets/pages/magaza.html">Qapılar</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li><a href="elaqe.html">Əlaqə</a></li>
-        </ul>
+                </li>
+                <li><a href="#">Əlaqə</a></li>
+            </ul>
+
+            <!-- Hamburger Menyu -->
+            <div class="hamburger" onclick="toggleMenu(this)">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
 
     <section class="container">
@@ -49,6 +53,48 @@
             <p>Missiyamız evlərinizə rahatlıq və estetik gözəllik gətirməkdir.</p>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- 1. Loqo və Şüar -->
+            <div class="footer-col">
+                <img src="../photos/logo.webp" alt="Lux Mebel" class="footer-logo">
+                <p>Evinizə dəyər qatan toxunuşlar və modern mebel həlləri.</p>
+            </div>
+
+            <!-- 2. Linklər -->
+            <div class="footer-col">
+                <h3>Menyu</h3>
+                <ul>
+                    <li><a href="../../index.html">Ana Səhifə</a></li>
+                    <li><a href="../pages/haqqimizda.html">Haqqımızda</a></li>
+                    <li><a href="../pages/magaza.html">Mağaza</a></li>
+                </ul>
+            </div>
+
+            <!-- 3. Əlaqə -->
+            <div class="footer-col">
+                <h3>Əlaqə</h3>
+                <p>📍 Xırdalan, Azərbaycan</p>
+                <p>📞 +994 XX XXX XX XX</p>
+            </div>
+
+            <!-- 4. Sosial -->
+            <div class="footer-col">
+                <h3>Bizi izləyin</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/lukshome.az/">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Lux Mebel. Bütün hüquqlar qorunur.</p>
+        </div>
+        <script>
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+        </script>
+    </footer>
+
 </body>
 
 </html>
