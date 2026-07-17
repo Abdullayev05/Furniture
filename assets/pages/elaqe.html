@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../css/haqqimizda.css">
+    <link rel="stylesheet" href="../css/elaqe.css">
     <script defer src="../../app.js"></script>
 </head>
 
@@ -35,7 +36,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="../pages/elaqe.html">Əlaqə</a></li>
+                <li><a href="#">Əlaqə</a></li>
             </ul>
 
             <!-- Hamburger Menyu -->
@@ -46,47 +47,74 @@
             </div>
         </div>
     </nav>
+    <section class="contact-section">
+    <div class="contact-container">
+        <!-- Sol tərəf: Modern Forma -->
+        <div class="contact-form">
+            <h2>Bizimlə Əlaqə Saxlayın.</h2>
+            <p class="form-subtitle">Eviniz üçün xüsusi dizayn edilmiş mebellər yaradaq...</p>
+            
+            <form action="send.php" method="POST">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Ad Soyad" required>
+                    <input type="text" name="phone" placeholder="Telefon" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="subject" placeholder="Mövzu" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <textarea name="message" placeholder="Mesaj" required></textarea>
+                <button type="submit">Mesaj Göndər <span class="btn-icon">✈</span></button>
+            </form>
+        </div>
 
-    <section class="about-section">
-        <div class="about-container">
-            <h3 class="top-title">Lüks Mebel Dizaynları</h3>
-            <h2 class="main-title">Haqqımızda</h2>
+        <!-- Sağ tərəf: Lüks Əlaqə Məlumatları Səhifəsi -->
+        <div class="contact-info">
+            <h3>Əlaqə saxlayın.</h3>
+            <p class="info-subtitle">Pulsuz ölçü və məsləhət üçün bizimlə əlaqə saxlayın.</p>
             <div class="underline"></div>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <p><strong>LuxMebel</strong> – müasir mebel dizaynı sahəsində innovativ yanaşmalar və yüksək
-                        keyfiyyətli xidmətlər təqdim edən aparıcı <strong>mebel dizayn agentliyidir</strong>. Biz,
-                        brendinizin uğurlu olmasını təmin etmək üçün yaradıcı yanaşmalar və qabaqcıl texnologiyanı
-                        mükəmməl birləşdiririk. <strong>Mebel dizaynı</strong> və <strong>interyer tərtibatı</strong>
-                        sahəsində təcrübəli komandamız, müştərilərimizin xüsusi ehtiyaclarına uyğun mükəmməl həllər
-                        təqdim edir.</p>
-                    <p>LuxMebel ilə işləmək, yalnız bir interyerə yeni bir görünüş qazandırmaq deyil, eyni zamanda həyat
-                        keyfiyyətini artırmaq, müasir və rahat yaşam sahələri yaratmaq deməkdir. Bizimlə işləyərək,
-                        yalnız mükəmməl mebel deyil, həm də özəl və təkrarısız bir məkan dizaynı əldə edirsiniz.</p>
+            <div class="info-items-wrapper">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <span>Əbdülvahab Salamzadə 33, Baku</span>
+                    </div>
                 </div>
 
-                <div class="about-text">
-                    <p>Bizim məqsədimiz yalnız vizual olaraq gözəl mebel və interyerlər yaratmaq deyil, eyni zamanda
-                        funksionallıq, rahatlıq və estetik cəhətdən müştərilərimizin tələblərinə ən uyğun həlləri təqdim
-                        etməkdir. <strong>LuxMebel</strong> olaraq biz, brendinizin xüsusiyyətlərini nəzərə alaraq, hər
-                        bir müştəri üçün unikal dizaynlar hazırlayırıq.</p>
-                    <p>Biz kiçik müəssisələrdən tutmuş iri korporasiyalara qədər müxtəlif ölçülü müştəri bazasına xidmət
-                        edirik. <strong>LuxMebel</strong> olaraq müasir dizayn proqramları və <strong>interyer dizayn
-                            alətləri</strong> ilə yaradılmış yüksək keyfiyyətli məhsulları, innovativ yanaşmalarla
-                        müştərilərimizə təqdim edirik. Hər bir layihə, müştəri məmnuniyyəti və xüsusi ehtiyaclara uyğun
-                        olaraq hazırlanır.</p>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-text">
+                        <a href="mailto:info@luxmebel.az">info@luxmebel.az</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <a href="tel:+994557565436">+994 55 756 54 36</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="about-footer">
-                <p>LuxMebel – Yaradıcı dizayn və yüksək keyfiyyətli mebel həlləri üçün bizimlə <a
-                        href="../pages/elaqe.html">əlaqə
-                        saxlayın.</a></p>
+            <h3 class="social-title">Sosial media</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/lukshome.az/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/Luxmebel.az/" target="_blank" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <footer class="footer">
         <div class="footer-container">
             <!-- 1. Loqo və Şüar -->
@@ -102,7 +130,7 @@
                     <li><a href="../../index.html">Ana Səhifə</a></li>
                     <li><a href="../pages/haqqimizda.html">Haqqımızda</a></li>
                     <li><a href="../pages/magaza.html">Mağaza</a></li>
-                    <li><a href="../pages/elaqe.html">Əlaqə</a></li>
+                    <li><a href="./assets/pages/elaqe.html">Əlaqə</a></li>
 
                 </ul>
             </div>
@@ -134,7 +162,6 @@
             document.getElementById("current-year").textContent = new Date().getFullYear();
         </script>
     </footer>
-
 </body>
 
 </html>

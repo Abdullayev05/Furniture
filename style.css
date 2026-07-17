@@ -542,6 +542,82 @@ section {
 
 /* ########################### */
 
+
+/* parallax-section */
+
+.parallax-section {
+    width: 100%;
+    height: 400px;
+    /* Görünən hissənin boyu */
+
+    /* Şəkli buraya əlavə et (şəkilin adını dəyişməyi unutma!) */
+    background-image: url('./assets/photos/divanlar/pht6.jpg');
+
+    /* Parallax effekti üçün vacib olanlar */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    margin: 50px 0;
+    /* Digər bölmələrdən boşluq */
+}
+
+/* Şəklin üzərinə qoyulan qaranlıq təbəqə (yazını oxunaqlı etmək üçün) */
+.parallax-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* 40% qaranlıq */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Yazıların stili */
+.parallax-content {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.parallax-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.parallax-desc {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.parallax-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #d4af37;
+    /* Qızılı rəng */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.parallax-btn:hover {
+    background: #fff;
+    color: #d4af37;
+}
+
+
+
+/* ################### */
+
+
+
 /* maps */
 
 .map-section {
@@ -562,13 +638,22 @@ section {
 
 /* Xəritəni çərçivəyə salmaq üçün */
 .map-container {
-    max-width: 1000px;
-    /* Ekranı tam doldurmaması üçün */
-    margin: 0 auto;
-    /* Ortalaması üçün */
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Linkin xəritənin üstündə durması üçün vacibdir */
+    display: block;
+    width: 100%;
+}
+
+.map-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    /* Xəritənin üzərində görünməz bir qat yaradır */
+    background: transparent;
+    /* Görünməzdir */
 }
 
 .map-container iframe {
@@ -602,7 +687,8 @@ section {
     padding: 0 5%;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: start; /* Bütün sütunları yuxarıdan eyni xəttə düzür */
+    align-items: start;
+    /* Bütün sütunları yuxarıdan eyni xəttə düzür */
 }
 
 /* Birinci sütun: Loqonu başlıqla eyni xəttə gətirən kod */
@@ -618,8 +704,10 @@ section {
     display: block;
     width: 200px;
     height: auto;
-    margin-left: -30px; /* Sola daha çox çəkmək üçün bu rəqəmi -15, -20 və ya daha çox edə bilərsən */
-    margin-top: -15px;  /* Yuxarıdan hizalamaq üçün */
+    margin-left: -30px;
+    /* Sola daha çox çəkmək üçün bu rəqəmi -15, -20 və ya daha çox edə bilərsən */
+    margin-top: -15px;
+    /* Yuxarıdan hizalamaq üçün */
     margin-bottom: 15px;
 }
 
@@ -645,6 +733,27 @@ section {
     transition: 0.3s;
     text-align: left;
     /* Mətnlərin sola tam hizalanması */
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    /* Linkləri alt-alta düzür */
+    align-items: flex-start;
+    /* Sola hizalayır */
+    gap: 10px;
+    /* Aralarındakı boşluq */
+}
+
+/* Linklərin stili üçün */
+.social-icons a {
+    display: block;
+    /* Tam blok kimi davranması üçün */
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 /* Siyahı */
@@ -798,25 +907,55 @@ section {
     }
 
     .footer-container {
-        grid-template-columns: 1fr; /* Sütunları alt-alta düzür */
-        text-align: left !important; /* Mətnləri mərkəzləşdirmir, sola çəkir */
-        padding-left: 5% !important; /* Sol tərəfdən bir az boşluq saxlayır */
+        grid-template-columns: 1fr;
+        /* Sütunları alt-alta düzür */
+        text-align: left !important;
+        /* Mətnləri mərkəzləşdirmir, sola çəkir */
+        padding-left: 5% !important;
+        /* Sol tərəfdən bir az boşluq saxlayır */
     }
 
-    .footer-col:first-child, 
+    .footer-col:first-child,
     .footer-col {
-        align-items: flex-start !important; /* Hər şeyi sola sıxır */
+        align-items: flex-start !important;
+        /* Hər şeyi sola sıxır */
         text-align: left !important;
     }
 
     .footer-logo {
-        margin-left: -30px !important; /* Şəkli sola tam yapışdırır */
+        margin-left: -30px !important;
+        /* Şəkli sola tam yapışdırır */
         margin-top: 0;
     }
 
-    .footer-col p, 
+    .footer-col p,
     .footer-col ul li a {
         text-align: left !important;
+    }
+
+    .parallax-title {
+        font-size: 26px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .parallax-desc {
+        font-size: 13px;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+
+    .parallax-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: #d4af37;
+        /* Qızılı rəng */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+        font-weight: 600;
     }
 }
 

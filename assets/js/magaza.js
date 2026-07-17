@@ -103,6 +103,18 @@ const closeBtn = document.querySelector(".close");
 
 // Məhsulları render edən funksiya
 function renderProducts(filter) {
+    // --- YENİ HİSSƏ: Aktiv düyməni rəngləmək üçün ---
+    const buttons = document.querySelectorAll('.filter-menu button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Basılan düyməni tap və 'active' klassı əlavə et
+    buttons.forEach(btn => {
+        if (btn.getAttribute('onclick').includes(`'${filter}'`)) {
+            btn.classList.add('active');
+        }
+    });
+    // ------------------------------------------------
+
     const container = document.getElementById('product-container');
     container.innerHTML = ''; 
 
@@ -116,17 +128,15 @@ function renderProducts(filter) {
     let filtered = [];
 
     if (filter === 'hamısı') {
-        // Burada massivi qarışdırırıq
         filtered = allProducts.sort(() => Math.random() - 0.5);
     } else {
         if (filter === 'salon') filtered = products.divanlar;
         else if (filter === 'qapı') filtered = products.qapilar;
         else if (filter === 'seyf') filtered = products.seyf_qapilar;
         else if (filter === 'masa_desti') filtered = products.stol_stul;
-        else filtered = allProducts; // Əgər filter boşdursa və ya səhvdirsə hamısını göstər
+        else filtered = allProducts;
     }
 
-    // Kartları yaradırıq
     filtered.forEach(item => {
         const card = document.createElement('div');
         card.className = 'product-card';

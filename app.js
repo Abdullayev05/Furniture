@@ -56,8 +56,9 @@ function toggleDropdown(element) {
 
 // 5. Kənara kliklədikdə hər şeyi bağlayan funksiya
 window.onclick = function (event) {
-    // 1. Dropdown-ları bağla
-    if (!event.target.matches('.dropbtn') && !event.target.matches('.dropbtn *')) {
+    // 1. DROP-DOWN-LARI BAĞLAMAQ ÜÇÜN
+    // Əgər kliklənən element .dropbtn və ya onun uşağı deyilsə, hər şeyi bağla
+    if (!event.target.closest('.dropbtn')) {
         document.querySelectorAll('.dropdown-content.show').forEach(content => {
             content.classList.remove('show');
             const arrow = content.parentElement.querySelector('.arrow');
@@ -65,12 +66,14 @@ window.onclick = function (event) {
         });
     }
 
-    // 2. Hamburger menyunu bağla (BURADA DƏYİŞİKLİK ETDİK)
+    // 2. HAMBURGER MENYUNU BAĞLAMAQ ÜÇÜN
     const navLinks = document.querySelector(".nav-links");
-    const menuBtn = document.querySelector(".hamburger"); // ".menu-toggle" yerinə ".hamburger"
+    const menuBtn = document.querySelector(".hamburger"); 
 
     if (navLinks && navLinks.classList.contains("active") &&
-        !event.target.closest('.nav-links') && !event.target.closest('.hamburger')) {
+        !event.target.closest('.nav-links') && 
+        !event.target.closest('.hamburger')) {
+        
         navLinks.classList.remove("active");
         if (menuBtn) menuBtn.classList.remove("active");
     }
