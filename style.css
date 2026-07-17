@@ -548,20 +548,16 @@ section {
 .parallax-section {
     width: 100%;
     height: 400px;
-    /* Görünən hissənin boyu */
-
-    /* Şəkli buraya əlavə et (şəkilin adını dəyişməyi unutma!) */
     background-image: url('./assets/photos/divanlar/pht6.jpg');
-
-    /* Parallax effekti üçün vacib olanlar */
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    
+    /* ƏSAS DƏYİŞİKLİK BURADADIR: */
+    background-attachment: fixed; 
+    
     position: relative;
     margin: 50px 0;
-    /* Digər bölmələrdən boşluq */
 }
 
 /* Şəklin üzərinə qoyulan qaranlıq təbəqə (yazını oxunaqlı etmək üçün) */
@@ -931,6 +927,13 @@ section {
     .footer-col p,
     .footer-col ul li a {
         text-align: left !important;
+    }
+
+    .parallax-section {
+        background-attachment: scroll;
+        /* Mobil cihazlarda 'fixed' yerinə 'scroll' qoyuruq */
+        height: 300px;
+        /* Telefonda daha yaxşı görünməsi üçün hündürlüyü bir az azaldaq */
     }
 
     .parallax-title {
